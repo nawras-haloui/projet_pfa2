@@ -1,0 +1,15 @@
+
+
+<app-menu></app-menu>
+
+<h1>users</h1>
+
+
+
+<div *ngFor="let user of users | async" style="width: 300px;">
+  <customer-details [user]='user'></customer-details>
+</div>
+
+<div>
+  <button type="button" class="button btn-danger" (click)='deleteUsers()'>Delete All</button>
+</div>

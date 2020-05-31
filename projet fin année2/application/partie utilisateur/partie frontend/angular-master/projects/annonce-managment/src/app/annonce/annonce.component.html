@@ -1,0 +1,91 @@
+
+<div class="container">
+
+  <form name="demo" #addressForm="ngForm" novalidate>
+
+      <p id="head">{{title}}</p>
+      <br />
+
+     
+      
+      <div class="left-div">
+
+      <p class="control-label" for="state">Institution</p>
+      <select class="form-control input-md" #university="ngModel" required id="university"  name="university"
+          [(ngModel)]="property.nomEcole">
+          <option value="Ensit" selected>Ensit</option>
+          <option value="Isi">Isi</option>
+          <option value="Fst">Fst</option>
+          <option value="Enit">Enit</option>
+          <option value="Ensi">Ensi</option>
+          <option value="Essect">Essect</option>
+
+      </select>
+      <div class="alert alert-danger" [hidden]="university.valid">University is required</div>
+
+      <p class="control-label" for="state">Gender</p>
+      
+
+      <p>
+         <!--- <select class="form-control input-md">
+              <option  value="boys"></option>
+              <option value="girls"></option>
+          </select>-->
+        <input type="radio" value="boys" name="gender" [(ngModel)]="property.genre" > Boys
+        <input type="radio"   value="girls" name="gender" [(ngModel)]="property.genre" > Girls
+     </p>
+
+      <p class="control-label" for="Type">Type</p>
+      <select class="form-control input-md" #type="ngModel" required id="type" name="type" [(ngModel)]="property.type">
+          <option value="House" selected>House</option>
+          <option value="Foyer">Foyer</option>
+      </select>
+      <div class="alert alert-danger" [hidden]="type.valid">Type is required</div>
+</div>
+
+<div class="right-div">
+
+      <p class="control-label" for="price">Price</p>
+      <input class="form-control input-md" #price="ngModel" required id="price" name="price" type="text"
+          placeholder="Enter price" [(ngModel)]="property.price">
+          <div class="alert alert-danger" [hidden]="price.valid">price is required</div>
+
+
+      <p class="control-label" for="state">Image URL</p>
+      <input class="form-control input-md" #image="ngModel" required id="image" name="image" type="file"
+          [(ngModel)]="property.image_url">
+      <div class="alert alert-danger" [hidden]="image.valid">Image is required</div>
+
+      <p class="control-label" for="numberOfPersons">number Of Persons</p>
+      <input class="form-control input-md" #numberOfPersons="ngModel" id="numberOfPersons" name="numberOfPersons"
+          type="number" min="1" [(ngModel)]="property.capacite" placeholder="choose number">
+
+          <p class="control-label" >Extra</p>
+
+          <div id="extra"><input type="checkbox" name="extra" [(ngModel)]="property.prop" ><p>Wifi</p></div>
+          <div id="extra"><input type="checkbox" name="extra" [(ngModel)]="property.prop" ><p>Bus </p></div> 
+          <div id="extra"><input type="checkbox" name="extra" [(ngModel)]="property.prop" ><p>Phone</p></div>
+          <div id="extra"><input type="checkbox" name="extra" [(ngModel)]="property.prop" ><p>Train </p></div>
+
+
+
+</div>
+<div class="buttom">
+      <p class="control-label" for="description">Description</p>
+      <textarea rows="5" cols="60" class="form-control input-md" #description="ngModel" required id="description" name="description"
+          type="text" placeholder="Enter description" [(ngModel)]="property.description"></textarea>
+          <div class="alert alert-danger" [hidden]="description.valid">description is required</div>
+        </div>
+      
+      <button class="btn btn-outline-rounded btn-info" [disabled]="!addressForm.valid"
+          (click)="goToNext(addressForm)"> Next <span style="margin-left:10px;"
+              class="glyphicon glyphicon-arrow-right"></span></button>
+
+
+
+  </form>
+</div>
+            
+            
+
+          
